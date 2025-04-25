@@ -16,12 +16,12 @@ services:
     build:
       context: ./backend
       dockerfile: ./Dockerfile
-      volumes:
-        - ./backend/:/backend
-      ports:
-        - "3000:3000"
-      networks:
-        - app-network
+    volumes:
+      - ./backend/:/backend
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
 
 volumes:
   mariadb-data:
