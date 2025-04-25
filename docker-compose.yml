@@ -1,0 +1,30 @@
+services:
+  db:
+    image: mariadb:10.11
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: elearningApp
+      MYSQL_USER: dev_user
+      MYSQL_PASSWORD: 12345678
+    volumes:
+      - mariadb-data:/var/lib/mysql
+      - ./sql/:/sql
+    networks:
+        - app-network
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ./Dockerfile
+      volumes:
+        - ./backend/:/backend
+      ports:
+        - "3000:3000"
+      networks:
+        - app-network
+
+volumes:
+  mariadb-data:
+networks:
+  app-network:
+    driver: bridge
