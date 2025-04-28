@@ -1,18 +1,17 @@
-name: "Auto Assign Reviewer"
+name: Auto Assign Reviewers
 on:
   pull_request:
     types: [opened]
 
 jobs:
-  assign_reviewer:
+  auto-assign:
     runs-on: ubuntu-latest
     steps:
-      - name: Choose and request a random reviewer
-        uses: hmarr/auto-assign-action@v2.0.0
+      - uses: wow-actions/auto-assign@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           reviewers: |
-            YamasakiTatsuki
-            dc-shinochi-haru
-            DC-FujiiHaruto
-          number_of_reviewers: 1
+             YamasakiTatsuki
+             dc-shinochi-haru
+             DC-FujiiHaruto
+          number-of-reviewers: 2
