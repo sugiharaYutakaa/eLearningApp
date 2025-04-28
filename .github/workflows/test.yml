@@ -9,9 +9,9 @@ jobs:
     steps:
       - uses: wow-actions/auto-assign@v2
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           reviewers: |
              YamasakiTatsuki
              dc-shinochi-haru
              DC-FujiiHaruto
-          number-of-reviewers: 2
+          numberOfReviewers: 2
