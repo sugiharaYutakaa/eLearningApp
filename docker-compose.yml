@@ -10,15 +10,12 @@ services:
       MYSQL_PASSWORD: 12345678
     volumes:
       - mariadb-data:/var/lib/mysql
-      - ./sql/:/sql
-      - /backend/sql:/backup
     networks:
       - app-network
 
   backend:
     build:
       context: ./backend
-      dockerfile: Dockerfile
     volumes:
       - ./backend/:/backend
     ports:
